@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tic Tac Toe - 2 Player</title>
+  <style>
+    /* (Reuse the same CSS as in ai-index.html) */
+    /* Reset & Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    h1 {
+      margin-top: 1rem;
+      font-size: 3rem;
+      animation: fadeInDown 1s ease-out;
+    }
+    
+    .container {
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    .game {
+      height: 60vmin;
+      width: 60vmin;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5vmin;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.1);
+      padding: 1vmin;
+      border-radius: 1rem;
+      box-shadow: 0 0 2rem rgba(0,0,0,0.3);
+      animation: popIn 1s ease-out;
+    }
+    
+    .box {
+      height: 18vmin;
+      width: 18vmin;
+      border-radius: 1rem;
+      border: none;
+      background-color: #FFD700;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+      font-size: 8vmin;
+      color: red;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      animation: popIn 0.5s ease-out;
+    }
+    .box:nth-child(1) { animation-delay: 0.1s; }
+    .box:nth-child(2) { animation-delay: 0.2s; }
+    .box:nth-child(3) { animation-delay: 0.3s; }
+    .box:nth-child(4) { animation-delay: 0.4s; }
+    .box:nth-child(5) { animation-delay: 0.5s; }
+    .box:nth-child(6) { animation-delay: 0.6s; }
+    .box:nth-child(7) { animation-delay: 0.7s; }
+    .box:nth-child(8) { animation-delay: 0.8s; }
+    .box:nth-child(9) { animation-delay: 0.9s; }
+    
+    .box:hover {
+      background-color: #CD853F;
+      transform: scale(1.05);
+      box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+    }
+    
+    .control-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    #reset {
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+      background: #191913;
+      color: white;
+      border-radius: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      animation: fadeInUp 1s ease-out;
+    }
+    #reset:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+    
+    #home {
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+      background: #191913;
+      color: white;
+      border-radius: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      animation: fadeInUp 1s ease-out;
+      text-decoration: none;
+      display: inline-block;
+    }
+    #home:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+    
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.15);
+      font-size: 1rem;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Tic Tac Toe</h1>
+    <div class="container">
+      <div class="game">
+        <!-- Nine game boxes -->
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+      </div>
+    </div>
+    <!-- Control Buttons: Reset Game and Home -->
+    <div class="control-buttons">
+      <button id="reset">Reset Game</button>
+      <a href="index.html" id="home">Home</a>
+    </div>
+  </main>
+  <footer>
+    Made with ❤ by 
+    <a href="https://www.linkedin.com/in/sahil-thorve/" target="_blank" rel="noopener noreferrer">Sahil Thorve</a>
+  </footer>
+  <script src="script2.js"></script>
+</body>
+</html>
